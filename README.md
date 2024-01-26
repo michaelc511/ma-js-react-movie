@@ -1,11 +1,11 @@
 # Movie App
-Git Repo: 
-  1.Our Repo: https://github.com/michaelc511/reel_movie_app 
-    * YT Ref: https://github.com/michaelc511/ma-js-react-movie 
-    * Bootcamp Ref: https://github.com/NolanWells/milestone-merm-project 
+  1. Git Repo: 
+    - Our Repo: https://github.com/michaelc511/reel_movie_app 
+    - YT Ref: https://github.com/michaelc511/ma-js-react-movie 
+    - Bootcamp Ref: https://github.com/NolanWells/milestone-merm-project 
 
   2. Youtube Playlist
-    * JS Master video: https://youtu.be/b9eMGE7QtTk?si=RpezwhGJweJ4z9l7
+    - JS Master video: https://youtu.be/b9eMGE7QtTk?si=RpezwhGJweJ4z9l7
 
   3. Blog Article:
  
