@@ -7,19 +7,20 @@ export const MovieProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("2024");
   const [section, setSection] = useState("Top Movies");
   const [movies, setMovies] = useState([]);
+  const [runSearch, setRunSearch] = useState(true);
 
   // functions to update the state variables
-  const setSearchTermHandler = (term) => {
-    setSearchTerm(term);
-  };
+  // const setSearchTermHandler = (term) => {
+  //   setSearchTerm(term);
+  // };
 
-  const setSectionHandler = (section) => {
-    setSection(section);
-  };
+  // const setSectionHandler = (section) => {
+  //   setSection(section);
+  // };
 
-  const setMoviesHandler = (movies) => {
-    setMovies(movies);
-  };
+  // const setMoviesHandler = (movies) => {
+  //   setMovies(movies);
+  // };
 
   return (
     <MovieContext.Provider
@@ -27,9 +28,11 @@ export const MovieProvider = ({ children }) => {
         searchTerm,
         section,
         movies,
-        setSearchTerm: setSearchTermHandler,
-        setSection: setSectionHandler,
-        setMovies: setMoviesHandler,
+        runSearch,
+        setSearchTerm,
+        setSection,
+        setMovies,
+        setRunSearch
       }}
     >
       {children}
