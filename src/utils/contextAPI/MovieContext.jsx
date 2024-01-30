@@ -3,10 +3,12 @@ import React, { createContext, useState } from "react";
 export const MovieContext = createContext();
 
 export const MovieProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState("2023");
-  const [section, setSection] = useState("Discover");
+  // state variables 
+  const [searchTerm, setSearchTerm] = useState("2024");
+  const [section, setSection] = useState("Top Movies");
   const [movies, setMovies] = useState([]);
 
+  // functions to update the state variables
   const setSearchTermHandler = (term) => {
     setSearchTerm(term);
   };
