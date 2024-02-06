@@ -1,14 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { MovieContext } from "../contextAPI/MovieContext";
-
-/*
-  // works fine for default first render search
-  getData()
-     we have searchMovies() in here. 
-
-  to use it again, we have to call the searchMovies() again and export it 
-*/
-
+ 
 const getData = () => {
   // use context
   const { searchTerm, runSearch, setRunSearch, movies, setMovies } =
@@ -25,10 +17,7 @@ const getData = () => {
       console.log("not run the search");
     }
   }, [searchTerm, runSearch]);
-
-  // rest of the code
-  // ...
-
+ 
   // 2. SearchMovies() setMovies()
   const searchMovies = () => {
     const API_URL = "http://www.omdbapi.com/?apikey=";
