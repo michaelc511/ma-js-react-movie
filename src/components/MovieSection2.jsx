@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import MovieCard from "./MovieCard.jsx";
+import MovieCard2 from "./MovieCard2.jsx";
 import SearchIcon from "../search.svg";
 import { MovieContext } from "../utils/contextAPI/MovieContext.jsx";
 import getData from "../utils/hooks/getData.js";
 
-const MovieSection = () => {
+const MovieSection2 = () => {
   const {
     searchTerm,
     setSearchTerm,
@@ -24,11 +25,11 @@ const MovieSection = () => {
     setRunSearch(true);
   };
 
-  let errorMsg = getData();
+  let errorMsg = getData(); 
 
   return (
     <div className="app">
-      <h1>MovieLand</h1>
+      <h1>Movie App - {section}</h1>
       <form>
         <div className="search">
           <input
@@ -47,20 +48,22 @@ const MovieSection = () => {
 
       {movies ? (
         <div className="container">
-          {movies.map((movie) => (
-            <MovieCard
-              movie={movie}
-              key={movie.imdbID}
+          {movies.results.map((movie) => (
+            <MovieCard2
+              movieTitle={movie.title}
+              key={movie.id}
+              moviePoster={movie.poster_path}
+              releaseDate={movie.release_date}
             />
           ))}
         </div>
       ) : (
         <div className="empty">
-          <h2>No movies found {movies}</h2>
+          <h2>No movies found </h2>
         </div>
       )}
     </div>
   );
 };
 
-export default MovieSection;
+export default MovieSection2;

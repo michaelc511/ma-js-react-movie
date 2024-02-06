@@ -5,9 +5,10 @@ export const MovieContext = createContext();
 export const MovieProvider = ({ children }) => {
   // state variables 
   const [searchTerm, setSearchTerm] = useState("2024");
-  const [section, setSection] = useState("Top Movies");
-  const [movies, setMovies] = useState([]);
+  const [section, setSection] = useState("Discover Movies");
+  const [movies, setMovies] = useState(null);
   const [runSearch, setRunSearch] = useState(true);
+  const [ source, setSource ] = useState("moviedb");
 
   // functions to update the state variables
   // const setSearchTermHandler = (term) => {
@@ -29,10 +30,12 @@ export const MovieProvider = ({ children }) => {
         section,
         movies,
         runSearch,
+        source,
         setSearchTerm,
         setSection,
         setMovies,
-        setRunSearch
+        setRunSearch,
+        setSource
       }}
     >
       {children}
