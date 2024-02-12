@@ -1,22 +1,21 @@
 import { useContext } from "react";
 import MovieCard from "./MovieCard.jsx";
-import MovieCard2 from "./MovieCard2.jsx";
 import SearchIcon from "../search.svg";
 import { MovieContext } from "../utils/contextAPI/MovieContext.jsx";
 import getData from "../utils/hooks/getData.js";
 
-const MovieSection2 = () => {
+const MoviePage = () => {
   const {
     searchTerm,
     setSearchTerm,
     section,
     movies,
     setRunSearch,
+    setSection,
   } = useContext(MovieContext);
 
   const handleButtonClick = () => {
     console.log(
-      "hi",
       document.getElementsByName("searchTermField")[0].value
     );
     setSearchTerm(
@@ -25,12 +24,27 @@ const MovieSection2 = () => {
     setRunSearch(true);
   };
 
-  let errorMsg = getData(); 
+  const changeSection = (section) => {
+    // alert("section: " + section);
+    setRunSearch(true);
+    setSection(section);
+  };
+
+  let errorMsg = getData();
 
   return (
     <div className="app">
-      <h1>Movie App - {section}</h1>
-      <form>
+      <h1>Movie App</h1><h2>{section}</h2>
+      <div className="container">
+        <h3 onClick={(e) => changeSection("Discover")}>
+          Discover
+        </h3> |
+        <h3 onClick={(e) => changeSection("Top Rated")}>
+          Top Rated
+        </h3>
+        | <h3 onClick={(e) => changeSection("Upcoming")}>Upcoming</h3>
+      </div>
+      {/* <form>
         <div className="search">
           <input
             value={searchTerm}
@@ -44,12 +58,12 @@ const MovieSection2 = () => {
             onClick={handleButtonClick}
           />
         </div>
-      </form>
+      </form> */}
 
       {movies ? (
         <div className="container">
           {movies.results.map((movie) => (
-            <MovieCard2
+            <MovieCard
               movieTitle={movie.title}
               key={movie.id}
               moviePoster={movie.poster_path}
@@ -66,4 +80,4 @@ const MovieSection2 = () => {
   );
 };
 
-export default MovieSection2;
+export default MoviePage;

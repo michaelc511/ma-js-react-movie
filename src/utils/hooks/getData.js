@@ -16,7 +16,9 @@ const getData = () => {
     movies,
     setMovies,
     source,
-    setSource
+    setSource,
+    section,
+    setSection,
   } = useContext(MovieContext);
   let errorMsg = null;
 
@@ -29,7 +31,7 @@ const getData = () => {
     } else {
       console.log("not run the search");
     }
-  }, [searchTerm, runSearch]);
+  }, [searchTerm, runSearch, section]);
 
   // 2. SearchMovies() setMovies()
   const searchMovies = () => {
@@ -56,9 +58,20 @@ const getData = () => {
   }; // end of searchMovies
 
   const searchMovies2 = () => {
-    // default is 'Discover Movies'  
-    const API_URL =
+
+    console.log("testMC Run the search");
+    // default is 'Discover Movies'
+    let API_URL =
       "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_original_language=en";
+
+    // if section is 'Top Rated'
+    if (section === "Top Rated") {
+      API_URL =
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=c800844ca750055c720f7e4972535f0b&language=en-US&page=1";
+    } else if (section === "Upcoming") {  // if section is 'Upcoming
+      API_URL =
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=c800844ca750055c720f7e4972535f0b&language=en-US&page=1";
+    }
 
     const OPTIONS = {
       method: "GET",
@@ -71,12 +84,12 @@ const getData = () => {
 
     fetch(API_URL, OPTIONS)
       .then((response) => response.json())
-      .then((data) => { 
+      .then((data) => {
         setMovies(data);
 
         console.log("movie state", data);
       })
-      .catch((e) => {  
+      .catch((e) => {
         console.log("error", e.message);
         errorMsg = e.message;
       });

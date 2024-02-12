@@ -40,6 +40,10 @@ h1 {
   width: fit-content; */
 }
 
+h2, h3{
+  padding: 20px;
+}
+
 .search {
   width: 71%;
   margin: 4rem 0 2rem;
