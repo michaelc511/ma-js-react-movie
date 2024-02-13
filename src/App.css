@@ -40,8 +40,23 @@ h1 {
   width: fit-content; */
 }
 
-h2, h3{
+h2, h3 {
   padding: 20px;
+  cursor: pointer;
+}
+
+h3:hover{
+  padding: 20px;
+  cursor: pointer;
+}
+
+.h3-selected {
+  padding: 20px;
+  text-decoration: underline; /* Add this line */
+
+  /* cursor: pointer;
+  background-color: #f9d3b4;
+  color: #212426; */
 }
 
 .search {

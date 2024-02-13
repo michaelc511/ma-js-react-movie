@@ -36,13 +36,13 @@ const MoviePage = () => {
     <div className="app">
       <h1>Movie App</h1><h2>{section}</h2>
       <div className="container">
-        <h3 onClick={(e) => changeSection("Discover")}>
+        <h3  className={section === 'Discover' ? 'h3-selected' : ''} onClick={(e) => changeSection("Discover")}>
           Discover
         </h3> |
-        <h3 onClick={(e) => changeSection("Top Rated")}>
+        <h3 className={section === 'Top Rated' ? 'h3-selected' : ''} onClick={(e) => changeSection("Top Rated")}>
           Top Rated
         </h3>
-        | <h3 onClick={(e) => changeSection("Upcoming")}>Upcoming</h3>
+        | <h3 className={section === 'Upcoming' ? 'h3-selected' : ''} onClick={(e) => changeSection("Upcoming")}>Upcoming</h3>
       </div>
       {/* <form>
         <div className="search">
