@@ -5,7 +5,7 @@ export const MovieContext = createContext();
 export const MovieProvider = ({ children }) => {
   // state variables 
   const [searchTerm, setSearchTerm] = useState("2024");
-  const [section, setSection] = useState("Discover Movies");
+  const [section, setSection] = useState("Discover");
   const [movies, setMovies] = useState(null);
   const [runSearch, setRunSearch] = useState(true);
   const [ source, setSource ] = useState("moviedb");
