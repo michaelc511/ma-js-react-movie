@@ -53,11 +53,18 @@ h3:hover{
 .h3-selected {
   padding: 20px;
   text-decoration: underline; /* Add this line */
-
-  /* cursor: pointer;
-  background-color: #f9d3b4;
-  color: #212426; */
 }
+
+.link-unselected {
+  padding: 20px; 
+}
+
+.link-selected {
+  padding: 20px;
+  text-decoration: underline; /* Add this line */
+}
+
+
 
 .search {
   width: 71%;

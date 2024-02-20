@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import MovieCard from "./MovieCard.jsx";
 import SearchIcon from "../search.svg";
 import { MovieContext } from "../utils/contextAPI/MovieContext.jsx";
 import getData from "../utils/hooks/getData.js";
+import { Link } from "react-router-dom";
 
-const MoviePage = () => {
+const MoviePage = ({ theSection }) => {
   const {
     searchTerm,
     setSearchTerm,
@@ -14,10 +15,15 @@ const MoviePage = () => {
     setSection,
   } = useContext(MovieContext);
 
+  setSection(theSection);
+
+  useEffect(() => {
+    setRunSearch(true);
+    setSection(section);
+  }, [section]);
+
   const handleButtonClick = () => {
-    console.log(
-      document.getElementsByName("searchTermField")[0].value
-    );
+ 
     setSearchTerm(
       document.getElementsByName("searchTermField")[0].value
     );
@@ -25,7 +31,6 @@ const MoviePage = () => {
   };
 
   const changeSection = (section) => {
-    // alert("section: " + section);
     setRunSearch(true);
     setSection(section);
   };
@@ -34,15 +39,41 @@ const MoviePage = () => {
 
   return (
     <div className="app">
-      <h1>Movie App</h1><h2>{section}</h2>
+      <h1>Movie App</h1>
+      <h2>{section}</h2>
       <div className="container">
-        <h3  className={section === 'Discover' ? 'h3-selected' : ''} onClick={(e) => changeSection("Discover")}>
-          Discover
-        </h3> |
-        <h3 className={section === 'Top Rated' ? 'h3-selected' : ''} onClick={(e) => changeSection("Top Rated")}>
-          Top Rated
+        <h3>
+          <Link
+            className={
+              section === "Discover" ? "link-selected" : "link-unselected"
+            }
+            to="/"
+          >
+            Discover
+          </Link>
         </h3>
-        | <h3 className={section === 'Upcoming' ? 'h3-selected' : ''} onClick={(e) => changeSection("Upcoming")}>Upcoming</h3>
+        |
+        <h3>
+          <Link
+            className={
+              section === "Top Rated" ? "link-selected" : "link-unselected"
+            }
+            to="/top-rated"
+          >
+            Top Rated
+          </Link>
+        </h3>
+        |
+        <h3>
+          <Link
+            className={
+              section === "Upcoming" ? "link-selected" : "link-unselected"
+            }
+            to="/upcoming"
+          >
+            Upcoming
+          </Link>
+        </h3>
       </div>
       {/* <form>
         <div className="search">
